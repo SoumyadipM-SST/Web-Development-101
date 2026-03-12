@@ -116,4 +116,3 @@ Through these activities and the final project, I learned:
 ## Author
 
 **Soumyadip Mandal**
-Aspiring Software Developer
