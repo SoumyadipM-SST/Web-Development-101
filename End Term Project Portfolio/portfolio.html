@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio - Soumyadip Mandal</title>
+    <style>
+        /* variables */
+        :root {
+            --background: black;
+            --bg-grad: rgb(22, 27, 34);
+            --text: white;
+            --muted: grey;
+            --accent: Cyan;
+            --accent-hover: yellow;
+            --highlight: orange;
+            --border: #30363d;
+            --box-shadow: 0 0 10px rgba(0,255,255,0.1);
+            --font: 'Fira Code', 'Poppins', monospace;
+            --transition: 0.25s ease;
+        }
+
+        /* Base CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font);
+            color: var(--text);
+            list-style: none;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--background);
+            line-height: 1.5;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text);
+            transition: color var(--transition);
+        }
+
+        a:hover {color: var(--accent-hover);}
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 6rem;
+            background: var(--bg-grad);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+        }
+
+        #name a {
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        #name span {color: var(--highlight);}
+
+        .navlinks {display: flex;}
+
+        .navlinks li {margin: 0 1.5rem;}
+        
+        .navlinks a {font-weight: 500; position: relative;}
+        
+        .navlinks a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            left: 0;
+            bottom: -4px;
+            background: var(--highlight);
+            transition: width var(--transition);
+        }
+
+        .navlinks a:hover::after {width: 100%;}
+
+        /* Glimpse (Hero Section) */
+        .glimpse {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--background), var(--bg-grad));
+        }
+
+        #fullname {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        #designation {
+            color: var(--muted);
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+        }
+
+        #resume button {
+            background: var(--accent);
+            color: var(--background);
+            font-size: 1.09rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 15px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        #resume button:hover {background: var(--accent-hover); transform: scale(1.05);}
+
+        /* Section Base CSS */
+        section {padding: 4rem 6rem; border-bottom: 1px solid var(--border);}
+
+        section h2 {
+            text-align: center;
+            color: var(--highlight);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* About */
+        .about article {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;}
+
+        .about div {
+            background: var(--bg-grad);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            max-width: 850px;
+            margin: 0 auto;
+            transition: all var(--transition)
+        }
+
+        .about div:hover {transform: scale(1.05)}
+
+        .about h3{color: var(--accent-hover); margin-bottom: 1rem;}
+
+        .about p {
+            margin: 1rem auto;
+            color: var(--text);
+            font-size: 1rem;
+        }
+
+        #edutable {
+            margin: 2rem auto;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #edutable td {
+            padding: 0.5rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+        }
+
+        /* Skills */
+        .skills article {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+            text-align: center;
+        }
+
+        .skills div {
+            background: var(--bg-grad);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            max-width: 850px;
+            margin: 0 auto;
+            transition: all var(--transition)
+        }
+
+        .skills div:hover {transform: scale(1.05)}
+
+        .skills h4 {color: var(--accent-hover); margin-bottom: 1rem;}
+
+        .skills li {color: var(--text); padding: 0.2rem 0;}
+
+        /* Projects */
+        .projects div {
+            background: var(--bg-grad);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            max-width: 850px;
+            margin: 0 auto;
+            transition: all var(--transition)
+        }
+
+        .projects div:hover {transform: scale(1.05)}
+
+
+        .projects h3 {color: var(--accent-hover); margin-bottom: 1rem;}
+
+        .projects p {color: var(--text);}
+
+        /* Works */
+        .works article p {color: var(--text);}
+        
+        .works article {
+            background: var(--bg-grad);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+            max-width: 850px;
+            margin: 0 auto;
+            transition: all var(--transition)
+        }
+
+        .works article:hover {transform: scale(1.05)}
+
+        /* Contact */
+        .contact article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        form {
+            width: 100%;
+            max-width: 650px;
+            background: var(--bg-grad);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--box-shadow);
+        }
+
+        input, textarea {
+            width: 100%;
+            background: var(--bg-grad);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 0.8rem;
+            color: var(--text);
+            margin-bottom: 1rem; 
+            transition: border var(--transition);
+        }
+
+        input:focus, textarea:focus {border-color: var(--accent); outline: none;}
+
+        button[type="submit"] {
+            background: var(--accent-hover);
+            color: black;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 800;
+            cursor: pointer;
+            display: block;
+            margin: 1rem auto;
+            transition: all var(--transition);
+        }
+
+        button[type="submit"]:hover {transform: scale(1.05); background: orangered;}
+
+        form p {
+            font-size: 0.8rem;
+            color: var(--text);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .social a img {
+            width: 50px;
+            margin: 5px 40px;
+            border-radius: 50%;
+            transition: all var(--transition);
+        }
+
+        .social a img:hover {transform: scale(1.15);}
+
+        /* Footer */
+        footer {
+            background: var(--bg-grad);
+            text-align: center;
+            padding: 1rem 1rem;
+            font-size: 1rem;
+            color: var(--muted);
+        }
+
+        footer section {padding: 2rem 1rem;}
+
+        /* Responsive Interface */
+        @media (max-width: 780px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 2rem;
+            }
+            .navlinks {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                margin-top: 0.5rem;
+            }
+
+            .glimpse {padding: 5rem 2rem 3rem;}
+            #fullname {font-size: 2.2rem;}
+            #designation {font-size: 1.2rem;}
+            #resume button {padding: 0.7rem 1.4rem;font-size: 1rem;}
+
+            section {padding: 3rem 2rem;}
+
+            #edutable {font-size: 0.8rem;}
+
+            .skills article {
+                grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {padding: 1rem 1rem;}
+
+            .navlinks {flex-direction: column;}
+
+            .glimpse {padding: 4rem 1rem 3rem;}
+            #fullname {font-size: 1.8rem;}
+            #designation {font-size: 1rem;}
+            #resume button {padding: 0.6rem 1.2rem; font-size: 0.9rem;}
+
+            .about article {gap: 1.5rem;}
+
+            .skills article {grid-template-columns: 1fr;}
+
+            .social a img {width: 38px;margin: 0 9px;}
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h2 id="name"><a href="#top">Soumyadip M<span>.</span></a></h2>
+            <ul class="navlinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#works">Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <section class="glimpse">
+            <h1 id="fullname">Soumyadip Mandal</h1>
+            <h2 id="designation">Student ~ "Aspiring Software Developer"</h2>
+            <h3 id="resume"><a href="Resume.pdf" target="_blank"><button>Resume</button></a></h3>
+        </section>
+    </header>
+    <main>
+        <section class="about" id="about">
+            <h2>About</h2>
+            <article>
+                <div id="intro">
+                    <h3>Introduction</h3>
+                    <p>I am currently pursuing my undergraduate education in Computer Science at Scaler School of Technology while also enrolled in a Data Science degree course at IIT Madras.</p>
+                    <p>My journey in Computer Science began after the 10th standard, when I learned Python, basic file management, and MySQL. This experience sparked my interest in the field and motivated me to pursue these courses.</p>
+                    <p>At present, I am focusing on strengthening my Computer Science fundamentals and expanding my skills by learning Java and web development.</p>
+                </div>
+                <div id="edu">
+                    <h3>Education</h3>
+                    <table id="edutable">
+                        <tr>
+                            <td>UG </td>
+                            <td>[2025 - present]</td>
+                            <td> : </td>
+                            <td>Scaler School of Technology, Bengaluru</td>
+                            <td> - </td>
+                            <td>Computer Science and Artificial Intelligence</td>
+                        </tr>
+                        <tr>
+                            <td>BS </td>
+                            <td>[2025 - present]</td>
+                            <td> : </td>
+                            <td>Indian Institute of Technology, Madras</td>
+                            <td> - </td>
+                            <td>Data Sciencce and Applications</td>
+                        </tr>
+                        <tr>
+                            <td>6th - 12th </td>
+                            <td>[2016 - 2023]</td>
+                            <td> : </td>
+                            <td>Jawahar Navodaya Vidyalaya, Alipurduar</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+        <section class="skills" id="skills">
+            <h2>Skills</h2>
+            <article>
+                <div class="prolang">
+                    <h4>Programming Languages</h4>
+                    <ul>
+                        <li>Java (Beginner)</li>
+                        <li>Python (Intermediate)</li>
+                        <li>JavaScript (Beginner)</li>
+                    </ul>
+                </div>
+                <div class="frontend">
+                    <h4>Frontend</h4>
+                    <ul>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>JavaScript</li>
+                    </ul>
+                </div>
+                <div class="tools">
+                    <h4>Tools and Databases</h4>
+                    <ul>
+                        <li>Visual Studio Code</li>
+                        <li>MySQL (Basic)</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <section class="projects" id="projects">
+            <h2>Projects</h2>
+            <article>
+                <div>
+                    <h3>Portfolio Website</h3>
+                    <p>Designed and developed a fully responsive personal portfolio using HTML and CSS. Implemented semantic structure, clean layout, and modern styling with Flexbox and Media Queries. Focused on accessibility, visual consistency, and smooth user experience across devices.</p>
+                </div>
+            </article>
+        </section>
+
+        <section class="works" id="works">
+            <h2>Work Experiences</h2>
+            <article>
+                <p>Currently, I do not have any formal work experience. I am focusing on strengthening my fundamentals and building relevant skills for quality employability.</p>
+                <p>In the near future, I plan to pursue internships to gain practical experience, refine my abilities, and learn new industry-relevant skills.</p>
+            </article>
+        </section>
+
+        <section class="contact" id="contact">
+            <h2>Contact</h2>
+            <article>
+                <div class="form">
+                    <form>
+                        <div>
+                            <input type="text" name="name" placeholder="Full Name">
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="Email">
+                        </div>
+                        <div>
+                            <textarea name="message"  placeholder="Message"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit">Send Message</button>
+                        </div>
+                        <div>
+                            <p>Note: This form is currently not functional, just for showcasing of skills. Please use the above links for contacting.</p>
+                        </div>
+                    </form>
+                </div>
+                <div class="social">
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=snworks15@gmail.com" target="_blank"><img src="Gmail.png" alt="e-mail"></a>
+                    <a href="https://www.linkedin.com/in/soumyadipm-lin" target="_blank"><img src="LinkedIn.png" alt="LinkedIn"></a>
+                    <a href="https://github.com/soumyadipm-gh" target="_blank"><img src="Github.jpg" alt="Github"></a>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <section class="update">Last Updated: 10 October 2025</section>
+        <section class="copywrite">© 2025 Soumyadip Mandal. All Rights Reserved.</section>
+    </footer>
+</body>
+</html>
