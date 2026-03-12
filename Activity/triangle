@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triangle</title>
+    <Style>
+        .tr{width: 0px; height: 0px; margin: 50px auto;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 100px solid purple;}
+    </Style>
+</head>
+<body>
+    <div class="tr"></div>
+</body>
+</html>
