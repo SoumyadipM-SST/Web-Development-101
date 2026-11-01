@@ -2,6 +2,8 @@
 
 This folder contains my foundational work while learning the basics of web development. The exercises and projects here focus on understanding **HTML structure, CSS styling, layout design, and simple responsive interfaces**. Each activity demonstrates a specific concept learned during the course.
 
+Portfolio - [Open Deployed Link](https://soumyadipm-sst.github.io/Web-Development-101/ETP%20-%20Portfolio/portfolio.html)
+
 ## Folder Structure
 
 ```
